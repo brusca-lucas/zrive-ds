@@ -25,7 +25,7 @@ local_path = "/home/lucas/zrive-ds/data/module_4/feature_frame.csv"
 
 
 ```python
-'''
+
 load_dotenv()
 session = boto3.Session(
     aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
@@ -42,7 +42,7 @@ try:
     print(f"File downloaded succesfully.")
 except Exception as e:
     print(f"File not found : {e}")
-'''
+
 ```
 
 
@@ -3364,3 +3364,8 @@ print(f'Recall: {actual_recall}')
 - The threshold used is determined taking in account what we think is an acceptable recall (around 0.6). This value results to be around 0.217
 
 - For the selected threshold even the baseline model seems to behave similar to other models.
+
+- Little difference in feature importance has been found between models. As an exception, Random Forest shows a bit more importance in features that are not the first three.
+
+- Despite that reducing the traning features to only the best three may increase the explainability it seems that perfomance is slightly worse when it is the case, so the training features will be the numerical variables.
+  Further experiments can be done to improve in this way.
